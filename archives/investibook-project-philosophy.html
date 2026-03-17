@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          Investibook Project Philosophy - handlerww | Cloud | Kubernetes
+        
+    </title>
+
+    <link rel="canonical" href="https://www.handlerww.com/archives/investibook-project-philosophy.html">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">handlerww&#39;s blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/index.html">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/index.html">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="https://www.handlerww.com/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                    </div>
+                    <h1>Investibook Project Philosophy</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        Posted by handlerww on
+                        2026-03-17
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="Investibook-Project-Philosophy"><a href="#Investibook-Project-Philosophy" class="headerlink" title="Investibook Project Philosophy"></a>Investibook Project Philosophy</h1><p><em>Software Engineering in the Agent Era</em></p>
+<hr>
+<h2 id="Preamble"><a href="#Preamble" class="headerlink" title="Preamble"></a>Preamble</h2><p>Investibook was built from day one as an experiment in agent-era software engineering. Not as a proof of concept, but as a production system with real users, real data, and real operational pressure. Along the way, we developed a set of principles — not borrowed from textbooks, but distilled from building, breaking, and rebuilding this system with AI agents as first-class contributors.</p>
+<p>This document captures those principles. It is meant to guide development decisions, inform new contributors (human and agent alike), and serve as a reference point when tradeoffs need to be made.</p>
+<p>We were heavily inspired by OpenAI’s <a href="https://openai.com/index/harness-engineering/">Harness Engineering</a> post, which articulated many ideas we had already been practicing. Where they built with Codex on an empty repo, we built with a mix of agents (OpenCode, Claude, Copilot) on a greenfield platform — and arrived at strikingly similar conclusions. This document captures both the shared principles and our own extensions.</p>
+<hr>
+<h2 id="1-Start-Fresh-Migrate-Knowledge"><a href="#1-Start-Fresh-Migrate-Knowledge" class="headerlink" title="1. Start Fresh, Migrate Knowledge"></a>1. Start Fresh, Migrate Knowledge</h2><blockquote>
+<p><em>We started with an empty git repository.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>Agent-era development should begin from a clean slate. Not because legacy code is bad, but because agents work best in environments designed for them from the ground up. Old codebases carry implicit assumptions — naming conventions that only make sense to the original author, configuration patterns that assume manual workflows, test structures that are human-navigable but agent-opaque.</p>
+<p>Starting fresh allows us to design the codebase, the repository structure, the documentation, and the development processes with agents in mind from day one. It lets us encode conventions explicitly in the repository — not buried in human memory or tribal knowledge. It lets us build scaffolding for agent legibility, verifiability, and autonomy without having to retrofit it onto an existing structure.</p>
+<p><strong>The principle</strong>: Build new foundations for agents. Port knowledge, not code.</p>
+<hr>
+<h2 id="2-Blueprint-First-Engineering"><a href="#2-Blueprint-First-Engineering" class="headerlink" title="2. Blueprint-First Engineering"></a>2. Blueprint-First Engineering</h2><blockquote>
+<p><em>The primary job of our engineering team became enabling the agents to do useful work.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>In traditional development, code is the primary artifact and documentation is the afterthought. In agent-era development, the relationship inverts. The most valuable human contribution is the blueprint — the design document, the architecture decision, the specification of intent.</p>
+<p>In Investibook, every major change begins with a dated design document in <code>docs/specs/</code>. The product design was written before the first component. The codebase restructure was planned as a phased spec with trade-off analysis before any file was moved. Bug fixes get postmortem documents in <code>docs/fixes/</code> explaining root cause and solution.</p>
+<p>This is not bureaucracy — it is leverage. A well-written spec lets an agent produce a correct implementation on the first pass. A vague ticket produces three rounds of review and rework.</p>
+<p><strong>The principle</strong>: Write the design first. The code follows. Human engineers design; agents implement.</p>
+<hr>
+<h2 id="3-Repository-as-Cockpit"><a href="#3-Repository-as-Cockpit" class="headerlink" title="3. Repository as Cockpit"></a>3. Repository as Cockpit</h2><blockquote>
+<p><em>We made repository knowledge the system of record.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>All project knowledge must live in the repository. Not in GitHub Issues. Not in Slack threads. Not in someone’s head. The repository is the cockpit — the single place where the current state of the project, its history, its plans, and its philosophy are discoverable.</p>
+<p>Investibook’s <code>docs/</code> directory is organized by lifecycle phase:</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docs<span class="symbol">/</span></span><br><span class="line">├── specs<span class="symbol">/</span>       — Design documents (dated, versioned)</span><br><span class="line">├── guides<span class="symbol">/</span>      — Configuration and integration procedures</span><br><span class="line">├── plans<span class="symbol">/</span>       — Roadmaps, backlogs, and implementation plans</span><br><span class="line">├── fixes<span class="symbol">/</span>       — Post-deployment corrections and lessons learned</span><br><span class="line">├── philosophy<span class="symbol">/</span>   — Philosophy documents (this document lives here)</span><br><span class="line">└── SUMMARY.md   — Canonical table of contents</span><br></pre></td></tr></table></figure>
+
+<p><code>AGENTS.md</code> at the repository root serves as the entry point — a table of contents that points agents to deeper sources of truth. It is not an exhaustive instruction manual; it is a map.</p>
+<p>Even for a mature project that starts without this structure, a few iterations of agent-driven development will naturally produce a document-based cockpit. Plans become markdown files. Decisions become specs. Bugs become fix documents. The repository converges toward being its own knowledge base.</p>
+<p><strong>The principle</strong>: If it’s not in the repo, it doesn’t exist — for agents or for future humans. The repository is the cockpit of the project.</p>
+<hr>
+<h2 id="4-Agent-Legibility-Is-the-Primary-Design-Constraint"><a href="#4-Agent-Legibility-Is-the-Primary-Design-Constraint" class="headerlink" title="4. Agent Legibility Is the Primary Design Constraint"></a>4. Agent Legibility Is the Primary Design Constraint</h2><blockquote>
+<p><em>From the agent’s point of view, anything it can’t access in-context while running effectively doesn’t exist.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>Code should tell everything. Project structure should be agent-readable, agent-usable, and agent-testable. When making a design decision, the first question is: “Can an agent understand this and work with it?”</p>
+<p>This means favoring explicitness over cleverness. Prefer typed contracts over implicit conventions. Prefer flat, named structures over deeply nested hierarchies. Prefer simple file-based interfaces over in-memory state that only a running process can observe. Prefer well-bounded modules with clear entry points over sprawling files that require reading thousands of lines to understand.</p>
+<p>Technologies often described as “boring” tend to be easier for agents to model: they have stable APIs, broad training representation, and predictable behavior. In some cases it’s better to reimplement a small subset of functionality in-repo — tightly integrated with the codebase’s own conventions — than to depend on an opaque upstream package whose behavior the agent can only guess at.</p>
+<p>The corollary: agents are the first-class developers; humans are the first-class designers and alignment-checkers. We optimize the codebase for agent productivity, and we optimize the review process for human judgment.</p>
+<p><strong>The principle</strong>: Design for agent legibility first. If an agent can’t navigate it, reason about it, and modify it — refactor until it can.</p>
+<hr>
+<h2 id="5-Architecture-as-Conflict-Prevention"><a href="#5-Architecture-as-Conflict-Prevention" class="headerlink" title="5. Architecture as Conflict Prevention"></a>5. Architecture as Conflict Prevention</h2><blockquote>
+<p><em>Enforcing invariants, not micromanaging implementations.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>In agent-era development, code conflicts are more expensive than code errors. An error can be detected by CI and fixed in a follow-up PR within minutes. A merge conflict requires ambiguous judgment calls, and agents handle ambiguity poorly.</p>
+<p>This reframes architecture: the primary goal of code structure is to minimize the probability that two concurrent changes touch the same lines.</p>
+<p>The pattern is: one concern, one location. Each domain of work should have a clearly designated home — route handlers in one place, data access in another, UI components in isolated folders. When the location for a change is unambiguous, parallel agents can work without stepping on each other.</p>
+<p>Strict boundaries with local autonomy. The architecture defines where things go; agents decide how things work within those boundaries. Constraints are enforced structurally — through linters, directory conventions, and module boundaries — not through code review gatekeeping.</p>
+<p><strong>The principle</strong>: Design code structure to minimize merge conflicts. In the agent era, structural conflicts cost more than bugs — bugs can be fixed in minutes, conflicts require human arbitration.</p>
+<hr>
+<h2 id="6-Fast-Merge-Cheap-Fix"><a href="#6-Fast-Merge-Cheap-Fix" class="headerlink" title="6. Fast Merge, Cheap Fix"></a>6. Fast Merge, Cheap Fix</h2><blockquote>
+<p><em>Corrections are cheap, and waiting is expensive.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>The conventional PR workflow — human review, approval gates, clean commit history — was designed for a world where code changes are expensive to produce and expensive to fix. In the agent era, neither is true.</p>
+<p>Our merge philosophy:</p>
+<ul>
+<li><strong>Development branches merge freely.</strong> The cost of a broken dev branch is a follow-up PR. The cost of blocking a dev branch is stalled momentum across all parallel work.</li>
+<li><strong>Commit-only workflow.</strong> We don’t squash-and-rebase to keep history pristine. We commit forward. If something is wrong, we revert with a new PR. Traceability and fast merging matter more than a clean <code>git log</code>.</li>
+<li><strong>Human review is for alignment, not correctness.</strong> Humans review to check whether the change matches intent and design. Correctness is verified by tests and CI. Having a human “hold” a PR to manually verify correctness is no longer the best use of the scarcest resource.</li>
+<li><strong>Revert over block.</strong> If a merged change causes problems, revert it. Don’t prevent merging to avoid the possibility of reverting. The revert-and-fix loop is faster than the review-and-block loop.</li>
+</ul>
+<p>This requires courage. Teams accustomed to gatekeeping must learn to trust the system — CI, type checking, tests, and the low cost of agent-generated fixes.</p>
+<p><strong>The principle</strong>: Merge fast, fix forward. A reverted PR is cheaper than a blocked pipeline. Optimize for throughput, not for the appearance of control.</p>
+<hr>
+<h2 id="7-Closing-the-Loop-Agent-Verifiable-Changes"><a href="#7-Closing-the-Loop-Agent-Verifiable-Changes" class="headerlink" title="7. Closing the Loop: Agent-Verifiable Changes"></a>7. Closing the Loop: Agent-Verifiable Changes</h2><blockquote>
+<p><em>We made the app bootable per git worktree, so Codex could launch and drive one instance per change.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>The ideal development loop is not “agent writes code → human reviews code.” It is “agent writes code → agent verifies the result → human reviews the outcome.”</p>
+<p>Every PR should be self-verifying: the agent runs the application, exercises the change, and reports the result. Human engineers evaluate outcomes — screenshots, rendered UI, metrics, behavior — not diffs. This shifts the human role from correctness gatekeeper to intent validator.</p>
+<p>To make this possible, applications must be designed for programmatic observability from the start. State should be readable via API, not locked inside a running process. Interfaces should be drivable from non-browser clients. Outputs — visual or data — should be capturable and comparable. When the application is legible to the agent as a running system, not just as source code, the feedback loop closes.</p>
+<p><strong>The principle</strong>: Every PR should be runnable and verifiable by an agent. Humans review results, not code. Push toward closed-loop verification where the agent demonstrates that its change works.</p>
+<hr>
+<h2 id="8-Extend-the-Agent’s-Reach"><a href="#8-Extend-the-Agent’s-Reach" class="headerlink" title="8. Extend the Agent’s Reach"></a>8. Extend the Agent’s Reach</h2><blockquote>
+<p><em>Given a single prompt, the agent can now validate, reproduce, fix, verify, and merge.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>The development lifecycle has distinct phases:</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Idea → Design Doc → UI/UX Mockup → <span class="keyword">Implementation</span> → Verification → Delivery → Production</span><br></pre></td></tr></table></figure>
+
+<p>Each phase that requires human intervention is a bottleneck. The goal is to progressively extend the agent’s coverage across this pipeline — not to eliminate humans, but to convert human concerns into development tasks that agents can execute.</p>
+<p>When a human has a concern, the response should not be to hand it to a human engineer to investigate for days. The response is to make that concern measurable and expressible as a task — with clear input, clear acceptance criteria, and a clear output — and let the agent handle it. Human judgment is spent on defining what good looks like, not on doing the work.</p>
+<p>This requires investing in the scaffolding that gives agents access to each phase: design templates that produce consistently structured specs, UI&#x2F;UX mockup flows that agents can render and compare, evaluation harnesses that translate acceptance criteria into executable checks. The more phases are scaffolded, the more of the pipeline is agent-coverable.</p>
+<p><strong>The principle</strong>: Convert human concerns into agent-executable tasks. Extend the agent’s reach across more phases of the development lifecycle. Every phase an agent can cover is a phase that scales.</p>
+<hr>
+<h2 id="9-Entropy-Management-and-Code-Garbage-Collection"><a href="#9-Entropy-Management-and-Code-Garbage-Collection" class="headerlink" title="9. Entropy Management and Code Garbage Collection"></a>9. Entropy Management and Code Garbage Collection</h2><blockquote>
+<p><em>Technical debt is like a high-interest loan.</em> — OpenAI Harness Engineering</p>
+</blockquote>
+<p>Agents replicate patterns they find in the codebase — including bad ones. Without active maintenance, agent-generated code drifts toward entropy: duplicated utilities, inconsistent naming, deprecated patterns that persist because nothing removes them.</p>
+<p>The approach is twofold: encode conventions so agents inherit them automatically, and run periodic cleanup that catches drift before it compounds. Coding standards, naming conventions, and structural rules belong in the repository’s agent-instruction files — not in shared human memory that new contributors (or new agent sessions) must independently rediscover. Legacy code marked for removal should be explicitly annotated, not quietly tolerated until someone trips over it.</p>
+<p>At the right moment in a project’s maturity — when the product has stabilized enough to reason about structure, but before entropy has compounded too far — a deeper architectural restructuring is worth the investment. This is not just cleanup: it is a deliberate re-alignment of the codebase with what the project has become, rather than what it was when first built. Done well, a restructuring sprint pays dividends that compound: agents produce better-located code, onboarding new contributors becomes faster, and the mental model of the codebase stays coherent as the project grows. The key is timing it as a planned, documented effort — not as an emergency response to dysfunction.</p>
+<p>What we haven’t yet fully realized: automated code GC — background tasks that scan for dead code, unused imports, and stale patterns, then open targeted cleanup PRs. This is the next frontier: human taste encoded once, enforced continuously by the system itself.</p>
+<p><strong>The principle</strong>: Agent-generated codebases need active garbage collection. Restructure intentionally, enforce conventions mechanically, and treat technical debt as a continuous cost — not a deferred one.</p>
+<hr>
+<h2 id="10-Context-Gated-Delivery"><a href="#10-Context-Gated-Delivery" class="headerlink" title="10. Context-Gated Delivery"></a>10. Context-Gated Delivery</h2><p>This is our own addition to the agent-era engineering playbook — a principle we developed from the realities of multi-person collaboration in a fast-moving project.</p>
+<h3 id="The-Problem"><a href="#The-Problem" class="headerlink" title="The Problem"></a>The Problem</h3><p>In traditional development, features are delivered when they are “done” — implementation complete, tests passing, review approved. But in practice, the right time to deliver a feature depends on much more than its implementation status:</p>
+<ul>
+<li><strong>Collaboration dynamics</strong>: What is the team focused on right now? A feature that works as a demo may carry a high cost to ship properly — hardening edge cases, coordinating dependencies, updating documentation. Is this the right moment to absorb that cost?</li>
+<li><strong>Stakeholder concerns</strong>: What are stakeholders currently worried about? Does this feature address a current priority or a future one?</li>
+<li><strong>External technical momentum</strong>: What is the industry doing? Is there a technology shift that makes this feature more or less relevant?</li>
+<li><strong>User readiness</strong>: Can users absorb this change? Are they asking for it, or will it confuse them?</li>
+</ul>
+<h3 id="The-Principle"><a href="#The-Principle" class="headerlink" title="The Principle"></a>The Principle</h3><p><strong>Features can be developed ahead of time, but delivery should be selected by fit, not merely by readiness.</strong></p>
+<p>A feature is <em>ready</em> when implementation is done. A change is <em>shippable</em> when the organization, stakeholder context, technical environment, and user state can absorb it at the lowest cost.</p>
+<h3 id="How-It-Works"><a href="#How-It-Works" class="headerlink" title="How It Works"></a>How It Works</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Development ←→ Asynchronous, continuous, unconstrained</span><br><span class="line">                │</span><br><span class="line">                ▼</span><br><span class="line">Delivery    ←→ Context-gated: collaboration dynamics, stakeholder concerns,</span><br><span class="line">                external momentum, <span class="keyword">user</span> <span class="title">readiness</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>Build broadly, ship selectively.</strong> Development runs ahead of delivery. Features are built when the agent (or engineer) has momentum, regardless of whether the team is ready to absorb the change.</li>
+<li><strong>Context gates delivery, not development.</strong> The “organizational fit” of a change determines when it ships — not when the PR is green. A perfectly implemented feature may sit in a branch for a week because the team is focused on a critical bug fix, and merging it now would split attention.</li>
+<li><strong>Lowest-cost delivery wins.</strong> When choosing what to ship next, ask: “Which change can be absorbed at the lowest cost and creates the strongest next-step leverage?” This is not about shipping the biggest or most complete feature. It’s about shipping the change that fits.</li>
+<li><strong>Async development is sacred.</strong> The context gate only applies to delivery (merging to main, deploying to production, announcing to users). Development itself — writing code, building prototypes, exploring approaches — should never be blocked by organizational rhythm.</li>
+</ul>
+<h3 id="In-Practice"><a href="#In-Practice" class="headerlink" title="In Practice"></a>In Practice</h3><p>Once a product is live, user feedback becomes a voting mechanism on the reserve backlog. Many requests that arrive after launch are already covered — fully or partially — by draft PRs or staged features that haven’t shipped yet. The feedback doesn’t create new work; it reprioritizes existing work.</p>
+<p>Features tend to sit in reserve for one of four reasons:</p>
+<ol>
+<li><strong>Lacking validated user experience</strong>: The implementation is ready, but hasn’t been tested against real users in a real context. Shipping prematurely risks baking in the wrong UX before we understand how users actually behave.</li>
+<li><strong>Organizational direction is unresolved</strong>: There is internal disagreement about the product’s next evolution. Shipping a feature that assumes a particular direction can foreclose better options. It’s better to wait for alignment than to ship and create migration cost.</li>
+<li><strong>Current shipping cost is high, but will decrease</strong>: Some features are expensive to ship today — they require documentation, coordination, or infrastructure that isn’t ready. The same feature may be much cheaper to ship in a future sprint when supporting work is already in place.</li>
+<li><strong>Priority ordering</strong>: Other changes deliver more leverage right now. The feature is good, but not the best use of the current delivery window.</li>
+</ol>
+<p>The reserve backlog is not failure — it is optionality. Features built ahead of time and held in reserve are ready to ship the moment the context becomes favorable. User feedback, leadership signals, and external momentum all serve as inputs to that decision.</p>
+<p><strong>The principle</strong>: Let development run ahead. Let context decide delivery. Build broadly, ship selectively.</p>
+<hr>
+<h2 id="Summary-of-Principles"><a href="#Summary-of-Principles" class="headerlink" title="Summary of Principles"></a>Summary of Principles</h2><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Principle</th>
+<th>One-liner</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Start Fresh, Migrate Knowledge</td>
+<td>Build new for agents; port knowledge, not code</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Blueprint-First Engineering</td>
+<td>Design docs before code; specs are the highest-leverage artifact</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Repository as Cockpit</td>
+<td>All project knowledge lives in the repo — it’s the single source of truth</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Agent Legibility First</td>
+<td>Design code for agents to read, navigate, and modify</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Architecture as Conflict Prevention</td>
+<td>Structure code to minimize merge conflicts, not just to organize logic</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Fast Merge, Cheap Fix</td>
+<td>Merge fast, fix forward; revert over block</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Agent-Verifiable Changes</td>
+<td>Every PR should be runnable and verifiable by an agent</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Extend the Agent’s Reach</td>
+<td>Convert human concerns into agent-executable tasks</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Entropy Management</td>
+<td>Agent codebases need active garbage collection</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Context-Gated Delivery</td>
+<td>Build broadly, ship selectively; let context decide delivery</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="What-We’re-Still-Learning"><a href="#What-We’re-Still-Learning" class="headerlink" title="What We’re Still Learning"></a>What We’re Still Learning</h2><p>We don’t have answers to everything. Open questions we’re actively exploring:</p>
+<ul>
+<li><strong>How does architectural coherence evolve</strong> when agents contribute the majority of code over months and years?</li>
+<li><strong>Where does human judgment add the most leverage</strong> — and how do we encode that judgment so it compounds instead of being spent once?</li>
+<li><strong>How do we automate code garbage collection</strong> effectively — scanning for drift, dead code, and pattern decay without generating false-positive cleanup PRs?</li>
+<li><strong>How do we make visual verification work</strong> — having agents render, screenshot, and compare UI changes as part of the PR loop?</li>
+<li><strong>How does Context-Gated Delivery scale</strong> to larger teams — is it a team-level discipline, or does it need tooling support?</li>
+</ul>
+<p>What’s clear: building software still demands discipline. But in the agent era, the discipline shows up in the scaffolding — the documents, the architecture boundaries, the feedback loops, the delivery gates — rather than in the code itself.</p>
+<p>The code is the easy part now. The hard part is designing the environment where agents can produce correct, maintainable, coherent software at scale. That’s what this philosophy is about.</p>
+<hr>
+<p><em>This document is a living artifact. It should be updated as our practices evolve and our understanding deepens.</em></p>
+
+
+                <hr>
+                
+                    <div id="gitalk-container"></div>
+                    <div class="comment">
+                        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+                        <script type="text/javascript">
+                            var gitalk = new Gitalk({
+                            clientID: 'Ov23liiEs8Ngar9WNQ9n',
+                            clientSecret: 'c1eefa3c65b5941e12cf9738858b51edbf9ca11f',
+                            repo: 'handlerww.github.io',
+                            owner: 'handlerww',
+                            admin: ['handlerww'],
+                            id: location.pathname,
+                            distractionFreeMode: 'true'
+                            })
+                            gitalk.render('gitalk-container')
+                        </script>
+                    </div>
+                
+
+                <ul class="pager">
+                    
+                    
+                </ul>
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/index.html">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://www.handlerww.com" target="_blank">handlerww&#39;s Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'always',
+          placement: 'right',
+          icon: '#'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/lostPuppet">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/handlerww">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; handlerww&#39;s blog 2026 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://www.handlerww.com/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+
+
+
+
+<!-- Image to hack wechat -->
+<!-- img src="https://www.handlerww.com/img/icon_wechat.png" width="0" height="0" / -- >
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
